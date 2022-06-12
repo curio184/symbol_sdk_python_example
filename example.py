@@ -370,32 +370,32 @@ if __name__ == "__main__":
     # ↓ 試したいものをアンコメント
 
     # 転送トランザクションを作成する
-    mosaics = [{"mosaic_id": currency_mosaic_id, "amount": int(18 * 1000000)}]
-    tx = creator.create_transfer_transaction(
-        sender_public_key, recipient_address, mosaics, "hello symbol"
-    )
-    creator.sign_and_announce_transaction(tx, sender_key_pair)
+    # mosaics = [{"mosaic_id": currency_mosaic_id, "amount": int(18 * 1000000)}]
+    # tx = creator.create_transfer_transaction(
+    #     sender_public_key, recipient_address, mosaics, "hello symbol"
+    # )
+    # creator.sign_and_announce_transaction(tx, sender_key_pair)
 
-    # # アグリゲートトランザクションを作成する
+    # アグリゲートトランザクションを作成する
     # mosaics = [{"mosaic_id": currency_mosaic_id, "amount": int(0 * 1000000)}]
     # tx = creator.create_aggregate_transfer_transaction(
     #     sender_public_key, recipient_address, mosaics, ["inner transaction 1", "inner transaction 2"]
     # )
     # creator.sign_and_announce_transaction(tx, sender_key_pair)
 
-    # # モザイクのプロパティを定義する
+    # モザイクのプロパティを定義する
     # tx = creator.create_mosaic_definition_transaction(
     #     sender_public_key, 0, 1000, True, False, False, False
     # )
     # creator.sign_and_announce_transaction(tx, sender_key_pair)
 
-    # # モザイクの供給量を変更する
+    # モザイクの供給量を変更する
     # tx = creator.create_mosaic_supply_change_transaction(
     #     sender_public_key, 0x251208ED3D0ABC84, 1000
     # )
     # creator.sign_and_announce_transaction(tx, sender_key_pair)
 
-    # # モザイクへのメタデータの割り当て
+    # モザイクへのメタデータの割り当て
     # tx = creator.create_mosaic_metadata_transaction(
     #     sender_public_key, sender_address, 0x251208ED3D0ABC84, "metadata key", "metadata value"
     # )
