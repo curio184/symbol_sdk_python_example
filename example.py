@@ -306,7 +306,7 @@ class SymbolTransactionCreator:
 
         return tx
 
-    def sign_and_announce_transaction(self, transaction, key_pair: KeyPair):
+    def sign_and_announce_transaction(self, transaction, key_pair: KeyPair) -> str:
         """
         トランザクションを署名し、ノードにアナウンスする
 
@@ -323,13 +323,11 @@ class SymbolTransactionCreator:
         # トランザクションを署名する
         signature = self._facade.sign_transaction(key_pair, transaction)
 
-        # トランザクションのハッシュ値
-        tx_hash = self._facade.hash_transaction(transaction)
-
         # ノードにアナウンスする
         url = self._node_url + "/transactions"
         http_headers = {"Content-type": "application/json"}
         payload = self._facade.transaction_factory.attach_signature(transaction, signature).encode()
+        tx_hash = self._facade.hash_transaction(transaction)
         response = requests.put(url, headers=http_headers, data=payload)
         if response.status_code != 202:
             raise Exception("status code is {}".format(response.status_code))
@@ -337,6 +335,8 @@ class SymbolTransactionCreator:
         print("tx hash:" + str(tx_hash))
         print("status code:" + str(response.status_code))
         print(self._explorer_url + str(tx_hash))
+
+        return str(tx_hash)
 
 
 if __name__ == "__main__":
