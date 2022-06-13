@@ -304,7 +304,7 @@ class SymbolTransactionCreator:
             "transactions": [tx]
         })
 
-        return tx
+        return aggre_tx
 
     def sign_and_announce_transaction(self, transaction, key_pair: KeyPair) -> str:
         """
