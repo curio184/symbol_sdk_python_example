@@ -21,7 +21,7 @@ from symbolchain.symbol.KeyPair import KeyPair
 from symbolchain.symbol.Network import Address
 
 
-class NonceGenerator():
+class NonceGenerator:
 
     @staticmethod
     def generate() -> int:
@@ -290,8 +290,8 @@ class SymbolTransactionCreator:
             "target_address": target_address,
             "target_mosaic_id": target_mosaic_id,
             "scoped_metadata_key": KeyGenerator.generate_uint64_key(scoped_metadata_key),
-            "value": bytes(1) + value.encode("utf8"),
-            "value_size_delta": len(bytes(1) + value.encode("utf8"))
+            "value": value.encode("utf8"),
+            "value_size_delta": len(value.encode("utf8"))
         })
 
         # アグリゲートトランザクションを作成する
